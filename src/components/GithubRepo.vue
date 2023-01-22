@@ -29,8 +29,7 @@
 <script>
 
   import {debouncerdecorator} from '@/helpers/debouncer.js'
-  import {api} from '@/api/api.js'
-  // import {Octokit} from 'octokit'
+  import {api} from '~api'
 
   export default {
     data: () => ({
@@ -61,7 +60,9 @@
         this.procuraUsuariosGithub()
       },
       user() {
-        this.listarepositorios()
+        if(this.user) {
+          this.listarepositorios()
+        }
       },
       repo () {
         console.log(this.repo)
