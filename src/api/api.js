@@ -26,6 +26,11 @@ export const api = {
         const url = `https://api.github.com/users/${username}/repos`
         const data = await fetch_all_pages(url)
         return await data
+    },
+    async listaIssues(owner, name, page) {
+        const url = `https://api.github.com/repos/${owner}/${name}/issues?page=${page}`
+        const response = await fetch(url)
+        return await response.json()
     }
 }
 
